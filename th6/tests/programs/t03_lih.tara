@@ -1,0 +1,10 @@
+; LIH writes high byte and preserves low byte (read-modify-write)
+LIL R0, 0xCD
+LIH R0, 0xAB        ; R0 = 0xABCD
+LIL R1, 0x34
+LIH R1, 0x12        ; R1 = 0x1234
+LIH R1, 0xFF        ; R1 = 0xFF34 (low byte kept)
+LIH R2, 0x05        ; R2 = 0x0500 from zero
+LIL R3, 0xFF
+LIH R3, 0x00        ; R3 = 0x00FF
+HLT

@@ -1,0 +1,15 @@
+LIL R1, 5
+LIL R2, 0
+LIH R2, 0x80        ; 8000 negative
+LIL R3, 0
+BN R1, bad          ; not taken (positive)
+BN R3, bad          ; not taken (zero)
+BN R2, good         ; taken
+bad: LIL R6, 0xBA
+HLT
+good: LIL R0, 2
+cnt: ADDI R0, -1
+ADDI R4, 1
+BN R0, end
+JMP cnt
+end: HLT

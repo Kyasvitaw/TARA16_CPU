@@ -1,0 +1,11 @@
+LIL R1, 0xF0
+LIH R1, 0x0F        ; 0FF0
+LIL R2, 0x3C
+LIH R2, 0xA5        ; A53C
+AND R3, R1, R2
+OR  R4, R1, R2
+XOR R5, R1, R2
+XOR R6, R2, R2      ; 0
+NOT R7, R1          ; F00F
+NOT R0, R6          ; FFFF
+HLT

@@ -1,0 +1,9 @@
+TARA Studio reference execution log: p1_register_addition.tara
+step PC    word  instruction             changes
+   0 0000  1934  LIL R1, 0x34            R1=0034
+   1 0002  2112  LIH R1, 0x12            R1=1234
+   2 0004  1AED  LIL R2, 0xed            R2=00ED
+   3 0006  220F  LIH R2, 0xf             R2=0FED
+   4 0008  4B28  ADD R3, R1, R2          R3=2221
+   5 000A  0800  HLT                     
+final: R0=0000 R1=1234 R2=0FED R3=2221 R4=0000 R5=0000 R6=0000 R7=0000  PC=000C

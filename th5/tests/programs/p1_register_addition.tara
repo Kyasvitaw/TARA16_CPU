@@ -1,0 +1,8 @@
+; Integration program 1: register addition
+; R3 = R1 + R2 with 16-bit constants built by LIL/LIH; expected R3 = 0x1234 + 0x0FED = 0x2221
+        LIL  R1, 0x34
+        LIH  R1, 0x12        ; R1 = 0x1234
+        LIL  R2, 0xED
+        LIH  R2, 0x0F        ; R2 = 0x0FED
+        ADD  R3, R1, R2      ; R3 = 0x2221
+        HLT

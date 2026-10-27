@@ -1,0 +1,17 @@
+TARA Studio reference execution log: t11_ldw_stw.tara
+step PC    word  instruction             changes
+   0 0000  1910  LIL R1, 0x10            R1=0010
+   1 0002  2104  LIH R1, 0x4             R1=0410
+   2 0004  1A34  LIL R2, 0x34            R2=0034
+   3 0006  2212  LIH R2, 0x12            R2=1234
+   4 0008  3220  STW R2, 0(R1)           
+   5 000A  3130  STW R1, -16(R1)         
+   6 000C  322E  STW R2, 14(R1)          
+   7 000E  2B20  LDW R3, 0(R1)           R3=1234
+   8 0010  2C30  LDW R4, -16(R1)         R4=0410
+   9 0012  2D2E  LDW R5, 14(R1)          R5=1234
+  10 0014  2E22  LDW R6, 2(R1)           
+  11 0016  3120  STW R1, 0(R1)           
+  12 0018  2F20  LDW R7, 0(R1)           R7=0410
+  13 001A  0800  HLT                     
+final: R0=0000 R1=0410 R2=1234 R3=1234 R4=0410 R5=1234 R6=0000 R7=0410  PC=001C

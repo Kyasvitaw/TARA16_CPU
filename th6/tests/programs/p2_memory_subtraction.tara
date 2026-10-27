@@ -1,0 +1,15 @@
+; Integration program 2: memory subtraction
+; Mem[0x0404] = Mem[0x0400] - Mem[0x0402]; operands are first written to memory
+        LIL  R0, 0x00
+        LIH  R0, 0x04        ; R0 = 0x0400 data base
+        LIL  R1, 0xD0
+        LIH  R1, 0x07        ; 2000
+        STW  R1, 0(R0)       ; a = 2000
+        LIL  R1, 0x2C
+        LIH  R1, 0x01        ; 300
+        STW  R1, 2(R0)       ; b = 300
+        LDW  R2, 0(R0)       ; R2 = a
+        LDW  R3, 2(R0)       ; R3 = b
+        SUB  R4, R2, R3      ; R4 = a - b = 1700 = 0x06A4
+        STW  R4, 4(R0)       ; result to 0x0404
+        HLT

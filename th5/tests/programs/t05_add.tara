@@ -1,0 +1,11 @@
+; boundary: 7FFF+1 = 8000, FFFF+1 = 0000
+LIL R1, 0xFF
+LIH R1, 0x7F        ; 7FFF
+LIL R2, 1
+ADD R3, R1, R2      ; 8000
+LIL R4, 0xFF
+LIH R4, 0xFF        ; FFFF
+ADD R5, R4, R2      ; 0000
+ADD R6, R2, R2      ; 2
+ADD R2, R2, R2      ; rd = source
+HLT

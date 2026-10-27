@@ -1,0 +1,188 @@
+TARA Studio reference execution log: p4_multiply_repeated_addition.tara
+step PC    word  instruction             changes
+   0 0000  197B  LIL R1, 0x7b            R1=007B
+   1 0002  1A2D  LIL R2, 0x2d            R2=002D
+   2 0004  1B00  LIL R3, 0x0             
+   3 0006  A203  BZ R2, +3               
+   4 0008  4B64  ADD R3, R3, R1          R3=007B
+   5 000A  5AFF  ADDI R2, -1             R2=002C
+   6 000C  B7FC  JMP -4                  
+   7 0006  A203  BZ R2, +3               
+   8 0008  4B64  ADD R3, R3, R1          R3=00F6
+   9 000A  5AFF  ADDI R2, -1             R2=002B
+  10 000C  B7FC  JMP -4                  
+  11 0006  A203  BZ R2, +3               
+  12 0008  4B64  ADD R3, R3, R1          R3=0171
+  13 000A  5AFF  ADDI R2, -1             R2=002A
+  14 000C  B7FC  JMP -4                  
+  15 0006  A203  BZ R2, +3               
+  16 0008  4B64  ADD R3, R3, R1          R3=01EC
+  17 000A  5AFF  ADDI R2, -1             R2=0029
+  18 000C  B7FC  JMP -4                  
+  19 0006  A203  BZ R2, +3               
+  20 0008  4B64  ADD R3, R3, R1          R3=0267
+  21 000A  5AFF  ADDI R2, -1             R2=0028
+  22 000C  B7FC  JMP -4                  
+  23 0006  A203  BZ R2, +3               
+  24 0008  4B64  ADD R3, R3, R1          R3=02E2
+  25 000A  5AFF  ADDI R2, -1             R2=0027
+  26 000C  B7FC  JMP -4                  
+  27 0006  A203  BZ R2, +3               
+  28 0008  4B64  ADD R3, R3, R1          R3=035D
+  29 000A  5AFF  ADDI R2, -1             R2=0026
+  30 000C  B7FC  JMP -4                  
+  31 0006  A203  BZ R2, +3               
+  32 0008  4B64  ADD R3, R3, R1          R3=03D8
+  33 000A  5AFF  ADDI R2, -1             R2=0025
+  34 000C  B7FC  JMP -4                  
+  35 0006  A203  BZ R2, +3               
+  36 0008  4B64  ADD R3, R3, R1          R3=0453
+  37 000A  5AFF  ADDI R2, -1             R2=0024
+  38 000C  B7FC  JMP -4                  
+  39 0006  A203  BZ R2, +3               
+  40 0008  4B64  ADD R3, R3, R1          R3=04CE
+  41 000A  5AFF  ADDI R2, -1             R2=0023
+  42 000C  B7FC  JMP -4                  
+  43 0006  A203  BZ R2, +3               
+  44 0008  4B64  ADD R3, R3, R1          R3=0549
+  45 000A  5AFF  ADDI R2, -1             R2=0022
+  46 000C  B7FC  JMP -4                  
+  47 0006  A203  BZ R2, +3               
+  48 0008  4B64  ADD R3, R3, R1          R3=05C4
+  49 000A  5AFF  ADDI R2, -1             R2=0021
+  50 000C  B7FC  JMP -4                  
+  51 0006  A203  BZ R2, +3               
+  52 0008  4B64  ADD R3, R3, R1          R3=063F
+  53 000A  5AFF  ADDI R2, -1             R2=0020
+  54 000C  B7FC  JMP -4                  
+  55 0006  A203  BZ R2, +3               
+  56 0008  4B64  ADD R3, R3, R1          R3=06BA
+  57 000A  5AFF  ADDI R2, -1             R2=001F
+  58 000C  B7FC  JMP -4                  
+  59 0006  A203  BZ R2, +3               
+  60 0008  4B64  ADD R3, R3, R1          R3=0735
+  61 000A  5AFF  ADDI R2, -1             R2=001E
+  62 000C  B7FC  JMP -4                  
+  63 0006  A203  BZ R2, +3               
+  64 0008  4B64  ADD R3, R3, R1          R3=07B0
+  65 000A  5AFF  ADDI R2, -1             R2=001D
+  66 000C  B7FC  JMP -4                  
+  67 0006  A203  BZ R2, +3               
+  68 0008  4B64  ADD R3, R3, R1          R3=082B
+  69 000A  5AFF  ADDI R2, -1             R2=001C
+  70 000C  B7FC  JMP -4                  
+  71 0006  A203  BZ R2, +3               
+  72 0008  4B64  ADD R3, R3, R1          R3=08A6
+  73 000A  5AFF  ADDI R2, -1             R2=001B
+  74 000C  B7FC  JMP -4                  
+  75 0006  A203  BZ R2, +3               
+  76 0008  4B64  ADD R3, R3, R1          R3=0921
+  77 000A  5AFF  ADDI R2, -1             R2=001A
+  78 000C  B7FC  JMP -4                  
+  79 0006  A203  BZ R2, +3               
+  80 0008  4B64  ADD R3, R3, R1          R3=099C
+  81 000A  5AFF  ADDI R2, -1             R2=0019
+  82 000C  B7FC  JMP -4                  
+  83 0006  A203  BZ R2, +3               
+  84 0008  4B64  ADD R3, R3, R1          R3=0A17
+  85 000A  5AFF  ADDI R2, -1             R2=0018
+  86 000C  B7FC  JMP -4                  
+  87 0006  A203  BZ R2, +3               
+  88 0008  4B64  ADD R3, R3, R1          R3=0A92
+  89 000A  5AFF  ADDI R2, -1             R2=0017
+  90 000C  B7FC  JMP -4                  
+  91 0006  A203  BZ R2, +3               
+  92 0008  4B64  ADD R3, R3, R1          R3=0B0D
+  93 000A  5AFF  ADDI R2, -1             R2=0016
+  94 000C  B7FC  JMP -4                  
+  95 0006  A203  BZ R2, +3               
+  96 0008  4B64  ADD R3, R3, R1          R3=0B88
+  97 000A  5AFF  ADDI R2, -1             R2=0015
+  98 000C  B7FC  JMP -4                  
+  99 0006  A203  BZ R2, +3               
+ 100 0008  4B64  ADD R3, R3, R1          R3=0C03
+ 101 000A  5AFF  ADDI R2, -1             R2=0014
+ 102 000C  B7FC  JMP -4                  
+ 103 0006  A203  BZ R2, +3               
+ 104 0008  4B64  ADD R3, R3, R1          R3=0C7E
+ 105 000A  5AFF  ADDI R2, -1             R2=0013
+ 106 000C  B7FC  JMP -4                  
+ 107 0006  A203  BZ R2, +3               
+ 108 0008  4B64  ADD R3, R3, R1          R3=0CF9
+ 109 000A  5AFF  ADDI R2, -1             R2=0012
+ 110 000C  B7FC  JMP -4                  
+ 111 0006  A203  BZ R2, +3               
+ 112 0008  4B64  ADD R3, R3, R1          R3=0D74
+ 113 000A  5AFF  ADDI R2, -1             R2=0011
+ 114 000C  B7FC  JMP -4                  
+ 115 0006  A203  BZ R2, +3               
+ 116 0008  4B64  ADD R3, R3, R1          R3=0DEF
+ 117 000A  5AFF  ADDI R2, -1             R2=0010
+ 118 000C  B7FC  JMP -4                  
+ 119 0006  A203  BZ R2, +3               
+ 120 0008  4B64  ADD R3, R3, R1          R3=0E6A
+ 121 000A  5AFF  ADDI R2, -1             R2=000F
+ 122 000C  B7FC  JMP -4                  
+ 123 0006  A203  BZ R2, +3               
+ 124 0008  4B64  ADD R3, R3, R1          R3=0EE5
+ 125 000A  5AFF  ADDI R2, -1             R2=000E
+ 126 000C  B7FC  JMP -4                  
+ 127 0006  A203  BZ R2, +3               
+ 128 0008  4B64  ADD R3, R3, R1          R3=0F60
+ 129 000A  5AFF  ADDI R2, -1             R2=000D
+ 130 000C  B7FC  JMP -4                  
+ 131 0006  A203  BZ R2, +3               
+ 132 0008  4B64  ADD R3, R3, R1          R3=0FDB
+ 133 000A  5AFF  ADDI R2, -1             R2=000C
+ 134 000C  B7FC  JMP -4                  
+ 135 0006  A203  BZ R2, +3               
+ 136 0008  4B64  ADD R3, R3, R1          R3=1056
+ 137 000A  5AFF  ADDI R2, -1             R2=000B
+ 138 000C  B7FC  JMP -4                  
+ 139 0006  A203  BZ R2, +3               
+ 140 0008  4B64  ADD R3, R3, R1          R3=10D1
+ 141 000A  5AFF  ADDI R2, -1             R2=000A
+ 142 000C  B7FC  JMP -4                  
+ 143 0006  A203  BZ R2, +3               
+ 144 0008  4B64  ADD R3, R3, R1          R3=114C
+ 145 000A  5AFF  ADDI R2, -1             R2=0009
+ 146 000C  B7FC  JMP -4                  
+ 147 0006  A203  BZ R2, +3               
+ 148 0008  4B64  ADD R3, R3, R1          R3=11C7
+ 149 000A  5AFF  ADDI R2, -1             R2=0008
+ 150 000C  B7FC  JMP -4                  
+ 151 0006  A203  BZ R2, +3               
+ 152 0008  4B64  ADD R3, R3, R1          R3=1242
+ 153 000A  5AFF  ADDI R2, -1             R2=0007
+ 154 000C  B7FC  JMP -4                  
+ 155 0006  A203  BZ R2, +3               
+ 156 0008  4B64  ADD R3, R3, R1          R3=12BD
+ 157 000A  5AFF  ADDI R2, -1             R2=0006
+ 158 000C  B7FC  JMP -4                  
+ 159 0006  A203  BZ R2, +3               
+ 160 0008  4B64  ADD R3, R3, R1          R3=1338
+ 161 000A  5AFF  ADDI R2, -1             R2=0005
+ 162 000C  B7FC  JMP -4                  
+ 163 0006  A203  BZ R2, +3               
+ 164 0008  4B64  ADD R3, R3, R1          R3=13B3
+ 165 000A  5AFF  ADDI R2, -1             R2=0004
+ 166 000C  B7FC  JMP -4                  
+ 167 0006  A203  BZ R2, +3               
+ 168 0008  4B64  ADD R3, R3, R1          R3=142E
+ 169 000A  5AFF  ADDI R2, -1             R2=0003
+ 170 000C  B7FC  JMP -4                  
+ 171 0006  A203  BZ R2, +3               
+ 172 0008  4B64  ADD R3, R3, R1          R3=14A9
+ 173 000A  5AFF  ADDI R2, -1             R2=0002
+ 174 000C  B7FC  JMP -4                  
+ 175 0006  A203  BZ R2, +3               
+ 176 0008  4B64  ADD R3, R3, R1          R3=1524
+ 177 000A  5AFF  ADDI R2, -1             R2=0001
+ 178 000C  B7FC  JMP -4                  
+ 179 0006  A203  BZ R2, +3               
+ 180 0008  4B64  ADD R3, R3, R1          R3=159F
+ 181 000A  5AFF  ADDI R2, -1             R2=0000
+ 182 000C  B7FC  JMP -4                  
+ 183 0006  A203  BZ R2, +3               
+ 184 000E  0800  HLT                     
+final: R0=0000 R1=007B R2=0000 R3=159F R4=0000 R5=0000 R6=0000 R7=0000  PC=0010

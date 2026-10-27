@@ -1,0 +1,26 @@
+TARA Studio reference execution log: t14_bz.tara
+step PC    word  instruction             changes
+   0 0000  1900  LIL R1, 0x0             
+   1 0002  1AFF  LIL R2, 0xff            R2=00FF
+   2 0004  22FF  LIH R2, 0xff            R2=FFFF
+   3 0006  1D00  LIL R5, 0x0             
+   4 0008  A202  BZ R2, +2               
+   5 000A  5D01  ADDI R5, 1              R5=0001
+   6 000C  A102  BZ R1, +2               
+   7 0012  1803  LIL R0, 0x3             R0=0003
+   8 0014  58FF  ADDI R0, -1             R0=0002
+   9 0016  5D01  ADDI R5, 1              R5=0002
+  10 0018  A001  BZ R0, +1               
+  11 001A  B7FC  JMP -4                  
+  12 0014  58FF  ADDI R0, -1             R0=0001
+  13 0016  5D01  ADDI R5, 1              R5=0003
+  14 0018  A001  BZ R0, +1               
+  15 001A  B7FC  JMP -4                  
+  16 0014  58FF  ADDI R0, -1             R0=0000
+  17 0016  5D01  ADDI R5, 1              R5=0004
+  18 0018  A001  BZ R0, +1               
+  19 001C  1C00  LIL R4, 0x0             
+  20 001E  4C90  ADD R4, R4, R4          
+  21 0020  A2F6  BZ R2, -10              
+  22 0022  0800  HLT                     
+final: R0=0000 R1=0000 R2=FFFF R3=0000 R4=0000 R5=0004 R6=0000 R7=0000  PC=0024

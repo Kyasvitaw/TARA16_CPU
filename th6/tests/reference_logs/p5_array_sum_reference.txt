@@ -1,0 +1,113 @@
+TARA Studio reference execution log: p5_array_sum.tara
+step PC    word  instruction             changes
+   0 0000  1800  LIL R0, 0x0             
+   1 0002  2004  LIH R0, 0x4             R0=0400
+   2 0004  1100  MOV R1, R0              R1=0400
+   3 0006  1A08  LIL R2, 0x8             R2=0008
+   4 0008  1CE8  LIL R4, 0xe8            R4=00E8
+   5 000A  2403  LIH R4, 0x3             R4=03E8
+   6 000C  A205  BZ R2, +5               
+   7 000E  3420  STW R4, 0(R1)           
+   8 0010  5C83  ADDI R4, -125           R4=036B
+   9 0012  5902  ADDI R1, 2              R1=0402
+  10 0014  5AFF  ADDI R2, -1             R2=0007
+  11 0016  B7FA  JMP -6                  
+  12 000C  A205  BZ R2, +5               
+  13 000E  3420  STW R4, 0(R1)           
+  14 0010  5C83  ADDI R4, -125           R4=02EE
+  15 0012  5902  ADDI R1, 2              R1=0404
+  16 0014  5AFF  ADDI R2, -1             R2=0006
+  17 0016  B7FA  JMP -6                  
+  18 000C  A205  BZ R2, +5               
+  19 000E  3420  STW R4, 0(R1)           
+  20 0010  5C83  ADDI R4, -125           R4=0271
+  21 0012  5902  ADDI R1, 2              R1=0406
+  22 0014  5AFF  ADDI R2, -1             R2=0005
+  23 0016  B7FA  JMP -6                  
+  24 000C  A205  BZ R2, +5               
+  25 000E  3420  STW R4, 0(R1)           
+  26 0010  5C83  ADDI R4, -125           R4=01F4
+  27 0012  5902  ADDI R1, 2              R1=0408
+  28 0014  5AFF  ADDI R2, -1             R2=0004
+  29 0016  B7FA  JMP -6                  
+  30 000C  A205  BZ R2, +5               
+  31 000E  3420  STW R4, 0(R1)           
+  32 0010  5C83  ADDI R4, -125           R4=0177
+  33 0012  5902  ADDI R1, 2              R1=040A
+  34 0014  5AFF  ADDI R2, -1             R2=0003
+  35 0016  B7FA  JMP -6                  
+  36 000C  A205  BZ R2, +5               
+  37 000E  3420  STW R4, 0(R1)           
+  38 0010  5C83  ADDI R4, -125           R4=00FA
+  39 0012  5902  ADDI R1, 2              R1=040C
+  40 0014  5AFF  ADDI R2, -1             R2=0002
+  41 0016  B7FA  JMP -6                  
+  42 000C  A205  BZ R2, +5               
+  43 000E  3420  STW R4, 0(R1)           
+  44 0010  5C83  ADDI R4, -125           R4=007D
+  45 0012  5902  ADDI R1, 2              R1=040E
+  46 0014  5AFF  ADDI R2, -1             R2=0001
+  47 0016  B7FA  JMP -6                  
+  48 000C  A205  BZ R2, +5               
+  49 000E  3420  STW R4, 0(R1)           
+  50 0010  5C83  ADDI R4, -125           R4=0000
+  51 0012  5902  ADDI R1, 2              R1=0410
+  52 0014  5AFF  ADDI R2, -1             R2=0000
+  53 0016  B7FA  JMP -6                  
+  54 000C  A205  BZ R2, +5               
+  55 0018  1A08  LIL R2, 0x8             R2=0008
+  56 001A  1B00  LIL R3, 0x0             
+  57 001C  1100  MOV R1, R0              R1=0400
+  58 001E  A205  BZ R2, +5               
+  59 0020  2D20  LDW R5, 0(R1)           R5=03E8
+  60 0022  4B74  ADD R3, R3, R5          R3=03E8
+  61 0024  5902  ADDI R1, 2              R1=0402
+  62 0026  5AFF  ADDI R2, -1             R2=0007
+  63 0028  B7FA  JMP -6                  
+  64 001E  A205  BZ R2, +5               
+  65 0020  2D20  LDW R5, 0(R1)           R5=036B
+  66 0022  4B74  ADD R3, R3, R5          R3=0753
+  67 0024  5902  ADDI R1, 2              R1=0404
+  68 0026  5AFF  ADDI R2, -1             R2=0006
+  69 0028  B7FA  JMP -6                  
+  70 001E  A205  BZ R2, +5               
+  71 0020  2D20  LDW R5, 0(R1)           R5=02EE
+  72 0022  4B74  ADD R3, R3, R5          R3=0A41
+  73 0024  5902  ADDI R1, 2              R1=0406
+  74 0026  5AFF  ADDI R2, -1             R2=0005
+  75 0028  B7FA  JMP -6                  
+  76 001E  A205  BZ R2, +5               
+  77 0020  2D20  LDW R5, 0(R1)           R5=0271
+  78 0022  4B74  ADD R3, R3, R5          R3=0CB2
+  79 0024  5902  ADDI R1, 2              R1=0408
+  80 0026  5AFF  ADDI R2, -1             R2=0004
+  81 0028  B7FA  JMP -6                  
+  82 001E  A205  BZ R2, +5               
+  83 0020  2D20  LDW R5, 0(R1)           R5=01F4
+  84 0022  4B74  ADD R3, R3, R5          R3=0EA6
+  85 0024  5902  ADDI R1, 2              R1=040A
+  86 0026  5AFF  ADDI R2, -1             R2=0003
+  87 0028  B7FA  JMP -6                  
+  88 001E  A205  BZ R2, +5               
+  89 0020  2D20  LDW R5, 0(R1)           R5=0177
+  90 0022  4B74  ADD R3, R3, R5          R3=101D
+  91 0024  5902  ADDI R1, 2              R1=040C
+  92 0026  5AFF  ADDI R2, -1             R2=0002
+  93 0028  B7FA  JMP -6                  
+  94 001E  A205  BZ R2, +5               
+  95 0020  2D20  LDW R5, 0(R1)           R5=00FA
+  96 0022  4B74  ADD R3, R3, R5          R3=1117
+  97 0024  5902  ADDI R1, 2              R1=040E
+  98 0026  5AFF  ADDI R2, -1             R2=0001
+  99 0028  B7FA  JMP -6                  
+ 100 001E  A205  BZ R2, +5               
+ 101 0020  2D20  LDW R5, 0(R1)           R5=007D
+ 102 0022  4B74  ADD R3, R3, R5          R3=1194
+ 103 0024  5902  ADDI R1, 2              R1=0410
+ 104 0026  5AFF  ADDI R2, -1             R2=0000
+ 105 0028  B7FA  JMP -6                  
+ 106 001E  A205  BZ R2, +5               
+ 107 002A  3320  STW R3, 0(R1)           
+ 108 002C  332E  STW R3, 14(R1)          
+ 109 002E  0800  HLT                     
+final: R0=0400 R1=0410 R2=0000 R3=1194 R4=0000 R5=007D R6=0000 R7=0000  PC=0030

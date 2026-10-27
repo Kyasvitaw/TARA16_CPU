@@ -1,0 +1,12 @@
+TARA Studio reference execution log: t03_lih.tara
+step PC    word  instruction             changes
+   0 0000  18CD  LIL R0, 0xcd            R0=00CD
+   1 0002  20AB  LIH R0, 0xab            R0=ABCD
+   2 0004  1934  LIL R1, 0x34            R1=0034
+   3 0006  2112  LIH R1, 0x12            R1=1234
+   4 0008  21FF  LIH R1, 0xff            R1=FF34
+   5 000A  2205  LIH R2, 0x5             R2=0500
+   6 000C  1BFF  LIL R3, 0xff            R3=00FF
+   7 000E  2300  LIH R3, 0x0             
+   8 0010  0800  HLT                     
+final: R0=ABCD R1=FF34 R2=0500 R3=00FF R4=0000 R5=0000 R6=0000 R7=0000  PC=0012

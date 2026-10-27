@@ -1,0 +1,20 @@
+TARA Studio reference execution log: t12_ldb_stb.tara
+step PC    word  instruction             changes
+   0 0000  1900  LIL R1, 0x0             
+   1 0002  2104  LIH R1, 0x4             R1=0400
+   2 0004  1A34  LIL R2, 0x34            R2=0034
+   3 0006  2212  LIH R2, 0x12            R2=1234
+   4 0008  3220  STW R2, 0(R1)           
+   5 000A  3B20  LDB R3, 0(R1)           R3=0012
+   6 000C  3C21  LDB R4, 1(R1)           R4=0034
+   7 000E  1DEE  LIL R5, 0xee            R5=00EE
+   8 0010  2599  LIH R5, 0x99            R5=99EE
+   9 0012  4521  STB R5, 1(R1)           
+  10 0014  2E20  LDW R6, 0(R1)           R6=12EE
+  11 0016  4522  STB R5, 2(R1)           
+  12 0018  18AB  LIL R0, 0xab            R0=00AB
+  13 001A  403F  STB R0, -1(R1)          
+  14 001C  2F22  LDW R7, 2(R1)           R7=EE00
+  15 001E  383F  LDB R0, -1(R1)          
+  16 0020  0800  HLT                     
+final: R0=00AB R1=0400 R2=1234 R3=0012 R4=0034 R5=99EE R6=12EE R7=EE00  PC=0022

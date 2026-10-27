@@ -1,0 +1,19 @@
+TARA Studio reference execution log: t17_push_pop.tara
+step PC    word  instruction             changes
+   0 0000  1FF0  LIL R7, 0xf0            R7=00F0
+   1 0002  2705  LIH R7, 0x5             R7=05F0
+   2 0004  1911  LIL R1, 0x11            R1=0011
+   3 0006  1A22  LIL R2, 0x22            R2=0022
+   4 0008  22AA  LIH R2, 0xaa            R2=AA22
+   5 000A  C900  PUSH R1                 R7=05EE
+   6 000C  CA00  PUSH R2                 R7=05EC
+   7 000E  D300  POP R3                  R3=AA22 R7=05EE
+   8 0010  D400  POP R4                  R4=0011 R7=05F0
+   9 0012  CF00  PUSH R7                 R7=05EE
+  10 0014  2DE0  LDW R5, 0(R7)           R5=05EE
+  11 0016  D600  POP R6                  R6=05EE R7=05F0
+  12 0018  10E0  MOV R0, R7              R0=05F0
+  13 001A  C900  PUSH R1                 R7=05EE
+  14 001C  D700  POP R7                  R7=0013
+  15 001E  0800  HLT                     
+final: R0=05F0 R1=0011 R2=AA22 R3=AA22 R4=0011 R5=05EE R6=05EE R7=0013  PC=0020

@@ -1,0 +1,22 @@
+TARA Studio reference execution log: t20_regfile_ports.tara
+step PC    word  instruction             changes
+   0 0000  1810  LIL R0, 0x10            R0=0010
+   1 0002  1921  LIL R1, 0x21            R1=0021
+   2 0004  1A32  LIL R2, 0x32            R2=0032
+   3 0006  1B43  LIL R3, 0x43            R3=0043
+   4 0008  1C54  LIL R4, 0x54            R4=0054
+   5 000A  1D65  LIL R5, 0x65            R5=0065
+   6 000C  1E76  LIL R6, 0x76            R6=0076
+   7 000E  1F87  LIL R7, 0x87            R7=0087
+   8 0010  1C54  LIL R4, 0x54            
+   9 0012  5004  SUB R0, R0, R1          R0=FFEF
+  10 0014  5128  SUB R1, R1, R2          R1=FFEF
+  11 0016  524C  SUB R2, R2, R3          R2=FFEF
+  12 0018  5370  SUB R3, R3, R4          R3=FFEF
+  13 001A  5494  SUB R4, R4, R5          R4=FFEF
+  14 001C  55B8  SUB R5, R5, R6          R5=FFEF
+  15 001E  56DC  SUB R6, R6, R7          R6=FFEF
+  16 0020  4FFC  ADD R7, R7, R7          R7=010E
+  17 0022  781C  XOR R0, R0, R7          R0=FEE1
+  18 0024  0800  HLT                     
+final: R0=FEE1 R1=FFEF R2=FFEF R3=FFEF R4=FFEF R5=FFEF R6=FFEF R7=010E  PC=0026

@@ -1,0 +1,19 @@
+; BZ tests the named register, during the branch; negative non-zero must NOT branch
+LIL R1, 0
+LIL R2, 0xFF
+LIH R2, 0xFF        ; -1 (negative, non-zero)
+LIL R5, 0
+BZ R2, bad          ; not taken
+ADDI R5, 1
+BZ R1, good         ; taken
+bad: LIL R6, 0xBA
+HLT
+good: LIL R0, 3
+loop: ADDI R0, -1
+ADDI R5, 1
+BZ R0, out
+JMP loop
+out: LIL R4, 0          ; preceding ADD left Z set; BZ must re-test R2
+ADD R4, R4, R4
+BZ R2, bad
+HLT

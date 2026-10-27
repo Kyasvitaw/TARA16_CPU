@@ -1,0 +1,26 @@
+TARA Studio reference execution log: t16_call_ret.tara
+step PC    word  instruction             changes
+   0 0000  1FF0  LIL R7, 0xf0            R7=00F0
+   1 0002  2705  LIH R7, 0x5             R7=05F0
+   2 0004  1900  LIL R1, 0x0             
+   3 0006  B803  CALL +3                 R6=0008
+   4 000E  5901  ADDI R1, 1              R1=0001
+   5 0010  CE00  PUSH R6                 R7=05EE
+   6 0012  B802  CALL +2                 R6=0014
+   7 0018  5920  ADDI R1, 32             R1=0021
+   8 001A  15C0  MOV R5, R6              R5=0014
+   9 001C  C000  RET                     
+  10 0014  D600  POP R6                  R6=0008 R7=05F0
+  11 0016  C000  RET                     
+  12 0008  5910  ADDI R1, 16             R1=0031
+  13 000A  B801  CALL +1                 R6=000C
+  14 000E  5901  ADDI R1, 1              R1=0032
+  15 0010  CE00  PUSH R6                 R7=05EE
+  16 0012  B802  CALL +2                 R6=0014
+  17 0018  5920  ADDI R1, 32             R1=0052
+  18 001A  15C0  MOV R5, R6              
+  19 001C  C000  RET                     
+  20 0014  D600  POP R6                  R6=000C R7=05F0
+  21 0016  C000  RET                     
+  22 000C  0800  HLT                     
+final: R0=0000 R1=0052 R2=0000 R3=0000 R4=0000 R5=0014 R6=000C R7=05F0  PC=000E

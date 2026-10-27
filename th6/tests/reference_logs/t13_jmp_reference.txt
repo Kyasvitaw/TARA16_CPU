@@ -1,0 +1,10 @@
+TARA Studio reference execution log: t13_jmp.tara
+step PC    word  instruction             changes
+   0 0000  1901  LIL R1, 0x1             R1=0001
+   1 0002  B003  JMP +3                  
+   2 000A  1A02  LIL R2, 0x2             R2=0002
+   3 000C  B7FC  JMP -4                  
+   4 0006  1B03  LIL R3, 0x3             R3=0003
+   5 0008  B003  JMP +3                  
+   6 0010  0800  HLT                     
+final: R0=0000 R1=0001 R2=0002 R3=0003 R4=0000 R5=0000 R6=0000 R7=0000  PC=0012

@@ -1,0 +1,16 @@
+LIL R7, 0xF0
+LIH R7, 0x05
+LIL R1, 0x11
+LIL R2, 0x22
+LIH R2, 0xAA
+PUSH R1
+PUSH R2
+POP R3              ; AA22
+POP R4              ; 0011
+PUSH R7             ; stores the decremented R7 (0x05EE)
+LDW R5, 0(R7)
+POP R6
+MOV R0, R7          ; back to 05F0
+PUSH R1
+POP R7              ; POP R7: R7 = M[R7] then +2  -> 0x0013
+HLT

@@ -1,0 +1,14 @@
+TARA Studio reference execution log: t07_addi.tara
+step PC    word  instruction             changes
+   0 0000  190A  LIL R1, 0xa             R1=000A
+   1 0002  59FF  ADDI R1, -1             R1=0009
+   2 0004  597F  ADDI R1, 127            R1=0088
+   3 0006  5980  ADDI R1, -128           R1=0008
+   4 0008  1A00  LIL R2, 0x0             
+   5 000A  5AFF  ADDI R2, -1             R2=FFFF
+   6 000C  1BFF  LIL R3, 0xff            R3=00FF
+   7 000E  237F  LIH R3, 0x7f            R3=7FFF
+   8 0010  5B01  ADDI R3, 1              R3=8000
+   9 0012  5C7F  ADDI R4, 127            R4=007F
+  10 0014  0800  HLT                     
+final: R0=0000 R1=0008 R2=FFFF R3=8000 R4=007F R5=0000 R6=0000 R7=0000  PC=0016

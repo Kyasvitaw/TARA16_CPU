@@ -1,0 +1,15 @@
+LIL R7, 0xF0
+LIH R7, 0x05        ; stack 0x05F0
+LIL R1, 0
+CALL sub1
+ADDI R1, 0x10
+CALL sub1
+HLT
+sub1: ADDI R1, 1
+PUSH R6
+CALL sub2           ; nested call clobbers R6
+POP R6
+RET
+sub2: ADDI R1, 0x20
+MOV R5, R6          ; return address seen by sub2
+RET

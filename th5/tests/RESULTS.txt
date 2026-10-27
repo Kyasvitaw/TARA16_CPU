@@ -1,0 +1,27 @@
+TH5 test results — Group 38, G38_th5_control.circ (Logisim-Evolution 4.1.0)
+
+Each program was assembled with the TARA Studio assembler and run on (a) TARA Studio's reference
+CPU model and (b) our circuit, to HLT. PASS = R0-R7 and PC identical after HLT.
+
+program                  instr. tested                     result  final R0..R7 (our CPU = TARA Studio)            PC
+t01_fetch_nop_hlt        fetch x4, NOP, HLT (Condition A)  PASS    0000 0000 0000 0000 0000 0000 0000 0000  000A
+t02_lil                  LIL (zero-extension)              PASS    00FF 0080 0000 0000 0000 0000 0000 002A  000A
+t03_lih                  LIH (keeps low byte)              PASS    ABCD FF34 0500 00FF 0000 0000 0000 0000  0012
+t04_mov                  MOV                               PASS    0000 1234 1234 0000 0000 0000 0000 1234  000E
+t05_add                  ADD incl. 7FFF+1, FFFF+1          PASS    0000 7FFF 0002 8000 FFFF 0000 0002 0000  0014
+t06_sub                  SUB incl. 8000-1, 3-5             PASS    0000 0003 0005 FFFE 0002 8000 0001 7FFF  0014
+t07_addi                 ADDI -1, +127, -128, 7FFF+1       PASS    0000 0008 FFFF 8000 007F 0000 0000 0000  0016
+t08_logic                AND OR XOR NOT                    PASS    FFFF 0FF0 A53C 0530 AFFC AACC 0000 F00F  0016
+t09_shift                SHL/SHR by 0,1,3,15,16,33         PASS    0000 0028 8000 0000 4000 0001 00FF 7FFF  0024
+t10_slt                  SLT signed, equal, 8000 vs 7FFF   PASS    0001 FFFF 0001 0001 0000 0000 0000 7FFF  001A
+t20_regfile_ports        every register on ports A and B   PASS    FEE1 FFEF FFEF FFEF FFEF FFEF FFEF 010E  0026
+t21_unimplemented_mul    MUL -> HALT, no state change      PASS    0000 0003 0000 0000 0000 0000 0000 0000  0004
+p1_register_addition     regression program                PASS    0000 1234 0FED 2221 0000 0000 0000 0000  000C
+
+13/13 PASS.  t21: TARA Studio executes MUL; our policy halts at MUL (PC=0004, R2 unchanged), as documented.
+
+Folders
+  programs/          the .tara source of every test
+  memory_images/     <name>_LOW.hex -> top RAM of ram_word (low byte), <name>_HIGH.hex -> bottom RAM (high byte)
+  reference_traces/  TARA Studio execution log of every program, one line per instruction
+  screenshots/       our circuit in Logisim after HLT (register file / control unit / datapath)

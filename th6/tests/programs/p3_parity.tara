@@ -1,0 +1,15 @@
+; Integration program 3: parity of a 16-bit word
+; R2 = 1 if the number of 1 bits in R1 is odd, else 0. Value 0xB6D5 has 10 ones -> R2 = 0
+        LIL  R1, 0xD5
+        LIH  R1, 0xB6        ; value under test
+        MOV  R5, R1          ; keep a copy
+        LIL  R2, 0           ; parity accumulator
+        LIL  R3, 1           ; mask
+        LIL  R4, 16          ; bit counter
+loop:   BZ   R4, done
+        AND  R0, R1, R3      ; lowest bit
+        XOR  R2, R2, R0      ; parity ^= bit
+        SHR  R1, 1
+        ADDI R4, -1
+        JMP  loop
+done:   HLT

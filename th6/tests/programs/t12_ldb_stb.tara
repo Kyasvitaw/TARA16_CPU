@@ -1,0 +1,18 @@
+; big-endian bytes; STB at odd and even addresses must not corrupt the neighbour
+LIL R1, 0x00
+LIH R1, 0x04        ; 0x0400
+LIL R2, 0x34
+LIH R2, 0x12        ; 0x1234
+STW R2, 0(R1)       ; M[400]=12 M[401]=34
+LDB R3, 0(R1)       ; 0x12
+LDB R4, 1(R1)       ; 0x34
+LIL R5, 0xEE
+LIH R5, 0x99        ; only low byte 0xEE is stored
+STB R5, 1(R1)       ; odd: word -> 12EE
+LDW R6, 0(R1)
+STB R5, 2(R1)       ; even: M[402]=EE, M[403] kept 0
+LIL R0, 0xAB
+STB R0, -1(R1)      ; M[3FF]=AB
+LDW R7, 2(R1)       ; EE00
+LDB R0, -1(R1)      ; 0xAB
+HLT

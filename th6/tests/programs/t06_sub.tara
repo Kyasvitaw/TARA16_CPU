@@ -1,0 +1,10 @@
+LIL R1, 3
+LIL R2, 5
+SUB R3, R1, R2      ; FFFE
+SUB R4, R2, R1      ; 2
+LIL R5, 0
+LIH R5, 0x80        ; 8000
+LIL R6, 1
+SUB R7, R5, R6      ; 7FFF
+SUB R0, R1, R1      ; 0
+HLT

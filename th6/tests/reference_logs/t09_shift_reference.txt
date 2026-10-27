@@ -1,0 +1,21 @@
+TARA Studio reference execution log: t09_shift.tara
+step PC    word  instruction             changes
+   0 0000  1905  LIL R1, 0x5             R1=0005
+   1 0002  8903  SHL R1, 3               R1=0028
+   2 0004  1A01  LIL R2, 0x1             R2=0001
+   3 0006  8A0F  SHL R2, 15              R2=8000
+   4 0008  1B01  LIL R3, 0x1             R3=0001
+   5 000A  8B10  SHL R3, 16              R3=0000
+   6 000C  1C01  LIL R4, 0x1             R4=0001
+   7 000E  2480  LIH R4, 0x80            R4=8001
+   8 0010  9401  SHR R4, 1               R4=4000
+   9 0012  1DFF  LIL R5, 0xff            R5=00FF
+  10 0014  25FF  LIH R5, 0xff            R5=FFFF
+  11 0016  950F  SHR R5, 15              R5=0001
+  12 0018  1EFF  LIL R6, 0xff            R6=00FF
+  13 001A  9600  SHR R6, 0               
+  14 001C  1FFF  LIL R7, 0xff            R7=00FF
+  15 001E  27FF  LIH R7, 0xff            R7=FFFF
+  16 0020  9721  SHR R7, 33              R7=7FFF
+  17 0022  0800  HLT                     
+final: R0=0000 R1=0028 R2=8000 R3=0000 R4=4000 R5=0001 R6=00FF R7=7FFF  PC=0024

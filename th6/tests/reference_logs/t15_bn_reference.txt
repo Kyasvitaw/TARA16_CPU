@@ -1,0 +1,23 @@
+TARA Studio reference execution log: t15_bn.tara
+step PC    word  instruction             changes
+   0 0000  1905  LIL R1, 0x5             R1=0005
+   1 0002  1A00  LIL R2, 0x0             
+   2 0004  2280  LIH R2, 0x80            R2=8000
+   3 0006  1B00  LIL R3, 0x0             
+   4 0008  A902  BN R1, +2               
+   5 000A  AB01  BN R3, +1               
+   6 000C  AA02  BN R2, +2               
+   7 0012  1802  LIL R0, 0x2             R0=0002
+   8 0014  58FF  ADDI R0, -1             R0=0001
+   9 0016  5C01  ADDI R4, 1              R4=0001
+  10 0018  A801  BN R0, +1               
+  11 001A  B7FC  JMP -4                  
+  12 0014  58FF  ADDI R0, -1             R0=0000
+  13 0016  5C01  ADDI R4, 1              R4=0002
+  14 0018  A801  BN R0, +1               
+  15 001A  B7FC  JMP -4                  
+  16 0014  58FF  ADDI R0, -1             R0=FFFF
+  17 0016  5C01  ADDI R4, 1              R4=0003
+  18 0018  A801  BN R0, +1               
+  19 001C  0800  HLT                     
+final: R0=FFFF R1=0005 R2=8000 R3=0000 R4=0003 R5=0000 R6=0000 R7=0000  PC=001E

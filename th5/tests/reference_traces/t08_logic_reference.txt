@@ -1,0 +1,14 @@
+TARA Studio reference execution log: t08_logic.tara
+step PC    word  instruction             changes
+   0 0000  19F0  LIL R1, 0xf0            R1=00F0
+   1 0002  210F  LIH R1, 0xf             R1=0FF0
+   2 0004  1A3C  LIL R2, 0x3c            R2=003C
+   3 0006  22A5  LIH R2, 0xa5            R2=A53C
+   4 0008  6B28  AND R3, R1, R2          R3=0530
+   5 000A  7428  OR R4, R1, R2           R4=AFFC
+   6 000C  7D28  XOR R5, R1, R2          R5=AACC
+   7 000E  7E48  XOR R6, R2, R2          
+   8 0010  8720  NOT R7, R1              R7=F00F
+   9 0012  80C0  NOT R0, R6              R0=FFFF
+  10 0014  0800  HLT                     
+final: R0=FFFF R1=0FF0 R2=A53C R3=0530 R4=AFFC R5=AACC R6=0000 R7=F00F  PC=0016

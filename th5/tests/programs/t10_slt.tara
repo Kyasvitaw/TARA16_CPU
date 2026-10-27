@@ -1,0 +1,13 @@
+LIL R1, 0xFF
+LIH R1, 0xFF        ; -1
+LIL R2, 1
+SLT R3, R1, R2      ; 1  (signed -1 < 1)
+SLT R4, R2, R1      ; 0
+SLT R5, R2, R2      ; 0  equal
+LIL R6, 0
+LIH R6, 0x80        ; 8000
+LIL R7, 0xFF
+LIH R7, 0x7F        ; 7FFF
+SLT R0, R6, R7      ; 1
+SLT R6, R7, R6      ; 0
+HLT

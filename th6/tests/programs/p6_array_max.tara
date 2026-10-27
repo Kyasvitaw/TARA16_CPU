@@ -1,0 +1,47 @@
+; Integration program 6: maximum of a signed 16-bit array
+; array at 0x0400: 7, -300, 1500, 42, -1, 1499, 0, 900  -> max = 1500 = 0x05DC in R3, stored at 0x0410
+        LIL  R7, 0xF0
+        LIH  R7, 0x05        ; stack, used by the helper
+        LIL  R0, 0x00
+        LIH  R0, 0x04        ; base
+        LIL  R1, 7
+        STW  R1, 0(R0)
+        LIL  R1, 0xD4
+        LIH  R1, 0xFE        ; -300
+        STW  R1, 2(R0)
+        LIL  R1, 0xDC
+        LIH  R1, 0x05        ; 1500
+        STW  R1, 4(R0)
+        LIL  R1, 42
+        STW  R1, 6(R0)
+        LIL  R1, 0xFF
+        LIH  R1, 0xFF        ; -1
+        STW  R1, 8(R0)
+        LIL  R1, 0xDB
+        LIH  R1, 0x05        ; 1499
+        STW  R1, 10(R0)
+        LIL  R1, 0
+        STW  R1, 12(R0)
+        LIL  R1, 0x84
+        LIH  R1, 0x03        ; 900
+        STW  R1, 14(R0)
+        LDW  R3, 0(R0)       ; max = a[0]
+        LIL  R2, 7           ; remaining
+        MOV  R1, R0
+loop:   BZ   R2, done
+        ADDI R1, 2
+        LDW  R4, 0(R1)
+        CALL maxof           ; R3 = max(R3, R4)
+        ADDI R2, -1
+        JMP  loop
+done:   MOV  R6, R0
+        ADDI R6, 16
+        STW  R3, 0(R6)       ; result at 0x0410
+        HLT
+; maxof: R3 = max(R3, R4) using SLT and BZ; preserves R5 on the stack
+maxof:  PUSH R5
+        SLT  R5, R3, R4      ; R5 = 1 if R3 < R4
+        BZ   R5, keep
+        MOV  R3, R4
+keep:   POP  R5
+        RET

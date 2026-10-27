@@ -1,0 +1,12 @@
+TARA Studio reference execution log: t18_pop_underflow.tara
+step PC    word  instruction             changes
+   0 0000  1FFE  LIL R7, 0xfe            R7=00FE
+   1 0002  2707  LIH R7, 0x7             R7=07FE
+   2 0004  1977  LIL R1, 0x77            R1=0077
+   3 0006  31E0  STW R1, 0(R7)           
+   4 0008  D200  POP R2                  R2=0077 R7=0800
+   5 000A  1B00  LIL R3, 0x0             
+   6 000C  2308  LIH R3, 0x8             R3=0800
+   7 000E  54EC  SUB R4, R7, R3          
+   8 0010  0800  HLT                     
+final: R0=0000 R1=0077 R2=0077 R3=0800 R4=0000 R5=0000 R6=0000 R7=0800  PC=0012

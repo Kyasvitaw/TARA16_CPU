@@ -1,0 +1,16 @@
+TARA Studio reference execution log: p2_memory_subtraction.tara
+step PC    word  instruction             changes
+   0 0000  1800  LIL R0, 0x0             
+   1 0002  2004  LIH R0, 0x4             R0=0400
+   2 0004  19D0  LIL R1, 0xd0            R1=00D0
+   3 0006  2107  LIH R1, 0x7             R1=07D0
+   4 0008  3100  STW R1, 0(R0)           
+   5 000A  192C  LIL R1, 0x2c            R1=002C
+   6 000C  2101  LIH R1, 0x1             R1=012C
+   7 000E  3102  STW R1, 2(R0)           
+   8 0010  2A00  LDW R2, 0(R0)           R2=07D0
+   9 0012  2B02  LDW R3, 2(R0)           R3=012C
+  10 0014  544C  SUB R4, R2, R3          R4=06A4
+  11 0016  3404  STW R4, 4(R0)           
+  12 0018  0800  HLT                     
+final: R0=0400 R1=012C R2=07D0 R3=012C R4=06A4 R5=0000 R6=0000 R7=0000  PC=001A

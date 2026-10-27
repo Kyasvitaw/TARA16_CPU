@@ -1,0 +1,13 @@
+TARA Studio reference execution log: t06_sub.tara
+step PC    word  instruction             changes
+   0 0000  1903  LIL R1, 0x3             R1=0003
+   1 0002  1A05  LIL R2, 0x5             R2=0005
+   2 0004  5328  SUB R3, R1, R2          R3=FFFE
+   3 0006  5444  SUB R4, R2, R1          R4=0002
+   4 0008  1D00  LIL R5, 0x0             
+   5 000A  2580  LIH R5, 0x80            R5=8000
+   6 000C  1E01  LIL R6, 0x1             R6=0001
+   7 000E  57B8  SUB R7, R5, R6          R7=7FFF
+   8 0010  5024  SUB R0, R1, R1          
+   9 0012  0800  HLT                     
+final: R0=0000 R1=0003 R2=0005 R3=FFFE R4=0002 R5=8000 R6=0001 R7=7FFF  PC=0014

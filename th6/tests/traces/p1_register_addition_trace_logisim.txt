@@ -1,0 +1,14 @@
+Trace of p1_register_addition.tara on OUR circuit (G38_th6_tara.circ, Logisim-Evolution 4.1.0), one line per instruction.
+Each line is sampled at T0: IR = instruction just completed, PC = address of the next fetch,
+R0-R7 = register file after that instruction.
+
+  #   PC    IR    instruction               R0   R1   R2   R3   R4   R5   R6   R7
+   0  0002  1934  LIL R1, 0x34              0000 0034 0000 0000 0000 0000 0000 0000
+   1  0004  2112  LIH R1, 0x12              0000 1234 0000 0000 0000 0000 0000 0000
+   2  0006  1AED  LIL R2, 0xed              0000 1234 00ED 0000 0000 0000 0000 0000
+   3  0008  220F  LIH R2, 0xf               0000 1234 0FED 0000 0000 0000 0000 0000
+   4  000A  4B28  ADD R3, R1, R2            0000 1234 0FED 2221 0000 0000 0000 0000
+      000C  0800  HLT                       (final, HALTED=1)
+
+Final registers: 0000 1234 0FED 2221 0000 0000 0000 0000
+TARA Studio final:  0000 1234 0FED 2221 0000 0000 0000 0000  PC=000C   -> IDENTICAL

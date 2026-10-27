@@ -1,0 +1,7 @@
+; unimplemented-opcode policy: MUL (opcode 12) HALTs and changes no architectural state.
+; TARA Studio executes MUL, so this test is checked against the EXPECT line, not the simulator.
+; EXPECT R1=0003 R2=0000 R3=0000 PC=0004
+LIL R1, 3
+MUL R2, R1, R1
+LIL R3, 1
+HLT

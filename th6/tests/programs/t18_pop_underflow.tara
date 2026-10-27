@@ -1,0 +1,10 @@
+; POP at the top of memory: R7 = 0x07FE -> 0x0800 (address wraps to 11 bits)
+LIL R7, 0xFE
+LIH R7, 0x07
+LIL R1, 0x77
+STW R1, 0(R7)
+POP R2
+LIL R3, 0x00
+LIH R3, 0x08
+SUB R4, R7, R3      ; 0 if R7 = 0x0800
+HLT

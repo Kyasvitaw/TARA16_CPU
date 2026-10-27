@@ -1,0 +1,6 @@
+; LIL zero-extends: high byte cleared even if previously set
+LIL R0, 0xFF
+LIL R1, 0x80
+LIL R7, 0x2A
+LIL R2, 0
+HLT

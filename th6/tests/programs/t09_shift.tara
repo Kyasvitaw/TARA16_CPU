@@ -1,0 +1,19 @@
+; shift amount comes from the immediate field, not a register
+LIL R1, 5
+SHL R1, 3           ; 0x28
+LIL R2, 1
+SHL R2, 15          ; 8000
+LIL R3, 1
+SHL R3, 16          ; 0
+LIL R4, 0x01
+LIH R4, 0x80
+SHR R4, 1           ; 4000
+LIL R5, 0xFF
+LIH R5, 0xFF
+SHR R5, 15          ; 1
+LIL R6, 0xFF
+SHR R6, 0           ; unchanged
+LIL R7, 0xFF
+LIH R7, 0xFF
+SHR R7, 0x21        ; amount = 0x21 & 0x1F = 1 -> 7FFF
+HLT

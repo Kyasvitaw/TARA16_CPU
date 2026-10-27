@@ -1,0 +1,12 @@
+; immediate is sign-extended (unlike LIL); rd is both source and destination
+LIL R1, 10
+ADDI R1, -1         ; 9
+ADDI R1, 127        ; 136
+ADDI R1, -128       ; 8
+LIL R2, 0
+ADDI R2, -1         ; FFFF
+LIL R3, 0xFF
+LIH R3, 0x7F
+ADDI R3, 1          ; 8000
+ADDI R4, 0x7F
+HLT

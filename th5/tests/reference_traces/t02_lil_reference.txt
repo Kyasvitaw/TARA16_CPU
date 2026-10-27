@@ -1,0 +1,8 @@
+TARA Studio reference execution log: t02_lil.tara
+step PC    word  instruction             changes
+   0 0000  18FF  LIL R0, 0xff            R0=00FF
+   1 0002  1980  LIL R1, 0x80            R1=0080
+   2 0004  1F2A  LIL R7, 0x2a            R7=002A
+   3 0006  1A00  LIL R2, 0x0             
+   4 0008  0800  HLT                     
+final: R0=00FF R1=0080 R2=0000 R3=0000 R4=0000 R5=0000 R6=0000 R7=002A  PC=000A

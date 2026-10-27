@@ -1,0 +1,152 @@
+TARA control ROM (TH6).  address = {Z, N, OPCODE[4:0], TSTATE[3:0]}
+
+Control word layout:
+  bit  0     PC_OUT
+  bit  1     MDR_OUT
+  bit  2     IMM_OUT
+  bit  3     RF_OUT
+  bit  4     ALU_OUT
+  bit  5     RAM_OUT_LD
+  bit  6     MAR_LOAD
+  bit  7     MDR_LOAD
+  bit  8     IR_LOAD
+  bit  9     RF_WRITE
+  bit 10     PC_EN
+  bit 11     PC_LOAD
+  bit 12     mem_read
+  bit 13     mem_write
+  bit 14-18  ALU_select
+  bit 19     ALU_A_SEL
+  bit 20     ALU_B_SEL
+  bit 21     status_we
+  bit 22-24  IMM_SEL
+  bit 25-26  RA_SEL
+  bit 27-28  RF_IDX_SEL
+  bit 29     STEP_RESET
+  bit 30     HALT
+  bit 31     BYTE_MODE
+
+filler word 0x20000000 (STEP_RESET); unimplemented opcode 0x60000000 (HALT)
+
+FETCH T0  0x00000041  PC_OUT MAR_LOAD
+FETCH T1  0x000014A0  RAM_OUT_LD MDR_LOAD PC_EN mem_read
+FETCH T2  0x00000102  MDR_OUT IR_LOAD
+
+NOP  (opcode 0, 00000)  implemented
+  T3  addr 0x003  0x20000000  STEP_RESET
+
+HLT  (opcode 1, 00001)  implemented
+  T3  addr 0x013  0x60000000  STEP_RESET HALT
+
+MOV  (opcode 2, 00010)  implemented
+  T3  addr 0x023  0x20000208  RF_OUT RF_WRITE STEP_RESET
+
+LIL  (opcode 3, 00011)  implemented
+  T3  addr 0x033  0x20000204  IMM_OUT RF_WRITE STEP_RESET
+
+LIH  (opcode 4, 00100)  implemented
+  T3  addr 0x043  0x23800204  IMM_OUT RF_WRITE IMM_SEL=6 RA_SEL=1 STEP_RESET
+
+LDW  (opcode 5, 00101)  implemented
+  T3  addr 0x053  0x00924050  ALU_OUT MAR_LOAD ALU_select=9 ALU_B_SEL IMM_SEL=2
+  T4  addr 0x054  0x000010A0  RAM_OUT_LD MDR_LOAD mem_read
+  T5  addr 0x055  0x20000202  MDR_OUT RF_WRITE STEP_RESET
+
+STW  (opcode 6, 00110)  implemented
+  T3  addr 0x063  0x00924050  ALU_OUT MAR_LOAD ALU_select=9 ALU_B_SEL IMM_SEL=2
+  T4  addr 0x064  0x02000088  RF_OUT MDR_LOAD RA_SEL=1
+  T5  addr 0x065  0x20002000  mem_write STEP_RESET
+
+LDB  (opcode 7, 00111)  implemented
+  T3  addr 0x073  0x00924050  ALU_OUT MAR_LOAD ALU_select=9 ALU_B_SEL IMM_SEL=2
+  T4  addr 0x074  0x800010A0  RAM_OUT_LD MDR_LOAD mem_read BYTE_MODE
+  T5  addr 0x075  0x20000202  MDR_OUT RF_WRITE STEP_RESET
+
+STB  (opcode 8, 01000)  implemented
+  T3  addr 0x083  0x00924050  ALU_OUT MAR_LOAD ALU_select=9 ALU_B_SEL IMM_SEL=2
+  T4  addr 0x084  0x02000088  RF_OUT MDR_LOAD RA_SEL=1
+  T5  addr 0x085  0xA0002000  mem_write STEP_RESET BYTE_MODE
+
+ADD  (opcode 9, 01001)  implemented
+  T3  addr 0x093  0x20224210  ALU_OUT RF_WRITE ALU_select=9 status_we STEP_RESET
+
+SUB  (opcode 10, 01010)  implemented
+  T3  addr 0x0A3  0x20228210  ALU_OUT RF_WRITE ALU_select=10 status_we STEP_RESET
+
+ADDI  (opcode 11, 01011)  implemented
+  T3  addr 0x0B3  0x22724210  ALU_OUT RF_WRITE ALU_select=9 ALU_B_SEL status_we IMM_SEL=1 RA_SEL=1 STEP_RESET
+
+MUL  (opcode 12, 01100)  HALTs
+  T3  addr 0x0C3  0x60000000  STEP_RESET HALT
+
+AND  (opcode 13, 01101)  implemented
+  T3  addr 0x0D3  0x20234210  ALU_OUT RF_WRITE ALU_select=13 status_we STEP_RESET
+
+OR  (opcode 14, 01110)  implemented
+  T3  addr 0x0E3  0x20238210  ALU_OUT RF_WRITE ALU_select=14 status_we STEP_RESET
+
+XOR  (opcode 15, 01111)  implemented
+  T3  addr 0x0F3  0x2023C210  ALU_OUT RF_WRITE ALU_select=15 status_we STEP_RESET
+
+NOT  (opcode 16, 10000)  implemented
+  T3  addr 0x103  0x20240210  ALU_OUT RF_WRITE ALU_select=16 status_we STEP_RESET
+
+SHL  (opcode 17, 10001)  implemented
+  T3  addr 0x113  0x22344210  ALU_OUT RF_WRITE ALU_select=17 ALU_B_SEL status_we RA_SEL=1 STEP_RESET
+
+SHR  (opcode 18, 10010)  implemented
+  T3  addr 0x123  0x22348210  ALU_OUT RF_WRITE ALU_select=18 ALU_B_SEL status_we RA_SEL=1 STEP_RESET
+
+SLT  (opcode 19, 10011)  implemented
+  T3  addr 0x133  0x2024C210  ALU_OUT RF_WRITE ALU_select=19 status_we STEP_RESET
+
+BZ  (opcode 20, 10100)  implemented
+  T3  addr 0x143  0x03F24000  ALU_select=9 ALU_B_SEL status_we IMM_SEL=7 RA_SEL=1
+  T4 Z=0 N=0  addr 0x144  0x20000000  STEP_RESET
+  T4 Z=0 N=1  addr 0x344  0x20000000  STEP_RESET
+  T4 Z=1 N=0  addr 0x544  0x20DA4C10  ALU_OUT PC_EN PC_LOAD ALU_select=9 ALU_A_SEL ALU_B_SEL IMM_SEL=3 STEP_RESET
+  T4 Z=1 N=1  addr 0x744  0x20DA4C10  ALU_OUT PC_EN PC_LOAD ALU_select=9 ALU_A_SEL ALU_B_SEL IMM_SEL=3 STEP_RESET
+
+BN  (opcode 21, 10101)  implemented
+  T3  addr 0x153  0x03F24000  ALU_select=9 ALU_B_SEL status_we IMM_SEL=7 RA_SEL=1
+  T4 Z=0 N=0  addr 0x154  0x20000000  STEP_RESET
+  T4 Z=0 N=1  addr 0x354  0x20DA4C10  ALU_OUT PC_EN PC_LOAD ALU_select=9 ALU_A_SEL ALU_B_SEL IMM_SEL=3 STEP_RESET
+  T4 Z=1 N=0  addr 0x554  0x20000000  STEP_RESET
+  T4 Z=1 N=1  addr 0x754  0x20DA4C10  ALU_OUT PC_EN PC_LOAD ALU_select=9 ALU_A_SEL ALU_B_SEL IMM_SEL=3 STEP_RESET
+
+JMP  (opcode 22, 10110)  implemented
+  T3  addr 0x163  0x211A4C10  ALU_OUT PC_EN PC_LOAD ALU_select=9 ALU_A_SEL ALU_B_SEL IMM_SEL=4 STEP_RESET
+
+CALL  (opcode 23, 10111)  implemented
+  T3  addr 0x173  0x08000201  PC_OUT RF_WRITE RF_IDX_SEL=1
+  T4  addr 0x174  0x211A4C10  ALU_OUT PC_EN PC_LOAD ALU_select=9 ALU_A_SEL ALU_B_SEL IMM_SEL=4 STEP_RESET
+
+RET  (opcode 24, 11000)  implemented
+  T3  addr 0x183  0x24000C08  RF_OUT PC_EN PC_LOAD RA_SEL=2 STEP_RESET
+
+PUSH  (opcode 25, 11001)  implemented
+  T3  addr 0x193  0x17528210  ALU_OUT RF_WRITE ALU_select=10 ALU_B_SEL IMM_SEL=5 RA_SEL=3 RF_IDX_SEL=2
+  T4  addr 0x194  0x06000048  RF_OUT MAR_LOAD RA_SEL=3
+  T5  addr 0x195  0x02000088  RF_OUT MDR_LOAD RA_SEL=1
+  T6  addr 0x196  0x20002000  mem_write STEP_RESET
+
+POP  (opcode 26, 11010)  implemented
+  T3  addr 0x1A3  0x06000048  RF_OUT MAR_LOAD RA_SEL=3
+  T4  addr 0x1A4  0x000010A0  RAM_OUT_LD MDR_LOAD mem_read
+  T5  addr 0x1A5  0x00000202  MDR_OUT RF_WRITE
+  T6  addr 0x1A6  0x37524210  ALU_OUT RF_WRITE ALU_select=9 ALU_B_SEL IMM_SEL=5 RA_SEL=3 RF_IDX_SEL=2 STEP_RESET
+
+undefined 27  (opcode 27, 11011)  HALTs
+  T3  addr 0x1B3  0x60000000  STEP_RESET HALT
+
+undefined 28  (opcode 28, 11100)  HALTs
+  T3  addr 0x1C3  0x60000000  STEP_RESET HALT
+
+undefined 29  (opcode 29, 11101)  HALTs
+  T3  addr 0x1D3  0x60000000  STEP_RESET HALT
+
+undefined 30  (opcode 30, 11110)  HALTs
+  T3  addr 0x1E3  0x60000000  STEP_RESET HALT
+
+undefined 31  (opcode 31, 11111)  HALTs
+  T3  addr 0x1F3  0x60000000  STEP_RESET HALT

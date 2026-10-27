@@ -1,0 +1,15 @@
+; EA = Rb + sext(off5); negative and maximum offsets
+LIL R1, 0x10
+LIH R1, 0x04        ; R1 = 0x0410
+LIL R2, 0x34
+LIH R2, 0x12
+STW R2, 0(R1)
+STW R1, -16(R1)     ; 0x0400
+STW R2, 14(R1)      ; 0x041E
+LDW R3, 0(R1)
+LDW R4, -16(R1)
+LDW R5, 14(R1)
+LDW R6, 2(R1)       ; zero
+STW R1, 0(R1)       ; overwrite
+LDW R7, 0(R1)
+HLT

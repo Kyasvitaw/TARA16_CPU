@@ -1,0 +1,107 @@
+TARA Studio reference execution log: p3_parity.tara
+step PC    word  instruction             changes
+   0 0000  19D5  LIL R1, 0xd5            R1=00D5
+   1 0002  21B6  LIH R1, 0xb6            R1=B6D5
+   2 0004  1520  MOV R5, R1              R5=B6D5
+   3 0006  1A00  LIL R2, 0x0             
+   4 0008  1B01  LIL R3, 0x1             R3=0001
+   5 000A  1C10  LIL R4, 0x10            R4=0010
+   6 000C  A405  BZ R4, +5               
+   7 000E  682C  AND R0, R1, R3          R0=0001
+   8 0010  7A40  XOR R2, R2, R0          R2=0001
+   9 0012  9101  SHR R1, 1               R1=5B6A
+  10 0014  5CFF  ADDI R4, -1             R4=000F
+  11 0016  B7FA  JMP -6                  
+  12 000C  A405  BZ R4, +5               
+  13 000E  682C  AND R0, R1, R3          R0=0000
+  14 0010  7A40  XOR R2, R2, R0          
+  15 0012  9101  SHR R1, 1               R1=2DB5
+  16 0014  5CFF  ADDI R4, -1             R4=000E
+  17 0016  B7FA  JMP -6                  
+  18 000C  A405  BZ R4, +5               
+  19 000E  682C  AND R0, R1, R3          R0=0001
+  20 0010  7A40  XOR R2, R2, R0          R2=0000
+  21 0012  9101  SHR R1, 1               R1=16DA
+  22 0014  5CFF  ADDI R4, -1             R4=000D
+  23 0016  B7FA  JMP -6                  
+  24 000C  A405  BZ R4, +5               
+  25 000E  682C  AND R0, R1, R3          R0=0000
+  26 0010  7A40  XOR R2, R2, R0          
+  27 0012  9101  SHR R1, 1               R1=0B6D
+  28 0014  5CFF  ADDI R4, -1             R4=000C
+  29 0016  B7FA  JMP -6                  
+  30 000C  A405  BZ R4, +5               
+  31 000E  682C  AND R0, R1, R3          R0=0001
+  32 0010  7A40  XOR R2, R2, R0          R2=0001
+  33 0012  9101  SHR R1, 1               R1=05B6
+  34 0014  5CFF  ADDI R4, -1             R4=000B
+  35 0016  B7FA  JMP -6                  
+  36 000C  A405  BZ R4, +5               
+  37 000E  682C  AND R0, R1, R3          R0=0000
+  38 0010  7A40  XOR R2, R2, R0          
+  39 0012  9101  SHR R1, 1               R1=02DB
+  40 0014  5CFF  ADDI R4, -1             R4=000A
+  41 0016  B7FA  JMP -6                  
+  42 000C  A405  BZ R4, +5               
+  43 000E  682C  AND R0, R1, R3          R0=0001
+  44 0010  7A40  XOR R2, R2, R0          R2=0000
+  45 0012  9101  SHR R1, 1               R1=016D
+  46 0014  5CFF  ADDI R4, -1             R4=0009
+  47 0016  B7FA  JMP -6                  
+  48 000C  A405  BZ R4, +5               
+  49 000E  682C  AND R0, R1, R3          
+  50 0010  7A40  XOR R2, R2, R0          R2=0001
+  51 0012  9101  SHR R1, 1               R1=00B6
+  52 0014  5CFF  ADDI R4, -1             R4=0008
+  53 0016  B7FA  JMP -6                  
+  54 000C  A405  BZ R4, +5               
+  55 000E  682C  AND R0, R1, R3          R0=0000
+  56 0010  7A40  XOR R2, R2, R0          
+  57 0012  9101  SHR R1, 1               R1=005B
+  58 0014  5CFF  ADDI R4, -1             R4=0007
+  59 0016  B7FA  JMP -6                  
+  60 000C  A405  BZ R4, +5               
+  61 000E  682C  AND R0, R1, R3          R0=0001
+  62 0010  7A40  XOR R2, R2, R0          R2=0000
+  63 0012  9101  SHR R1, 1               R1=002D
+  64 0014  5CFF  ADDI R4, -1             R4=0006
+  65 0016  B7FA  JMP -6                  
+  66 000C  A405  BZ R4, +5               
+  67 000E  682C  AND R0, R1, R3          
+  68 0010  7A40  XOR R2, R2, R0          R2=0001
+  69 0012  9101  SHR R1, 1               R1=0016
+  70 0014  5CFF  ADDI R4, -1             R4=0005
+  71 0016  B7FA  JMP -6                  
+  72 000C  A405  BZ R4, +5               
+  73 000E  682C  AND R0, R1, R3          R0=0000
+  74 0010  7A40  XOR R2, R2, R0          
+  75 0012  9101  SHR R1, 1               R1=000B
+  76 0014  5CFF  ADDI R4, -1             R4=0004
+  77 0016  B7FA  JMP -6                  
+  78 000C  A405  BZ R4, +5               
+  79 000E  682C  AND R0, R1, R3          R0=0001
+  80 0010  7A40  XOR R2, R2, R0          R2=0000
+  81 0012  9101  SHR R1, 1               R1=0005
+  82 0014  5CFF  ADDI R4, -1             R4=0003
+  83 0016  B7FA  JMP -6                  
+  84 000C  A405  BZ R4, +5               
+  85 000E  682C  AND R0, R1, R3          
+  86 0010  7A40  XOR R2, R2, R0          R2=0001
+  87 0012  9101  SHR R1, 1               R1=0002
+  88 0014  5CFF  ADDI R4, -1             R4=0002
+  89 0016  B7FA  JMP -6                  
+  90 000C  A405  BZ R4, +5               
+  91 000E  682C  AND R0, R1, R3          R0=0000
+  92 0010  7A40  XOR R2, R2, R0          
+  93 0012  9101  SHR R1, 1               R1=0001
+  94 0014  5CFF  ADDI R4, -1             R4=0001
+  95 0016  B7FA  JMP -6                  
+  96 000C  A405  BZ R4, +5               
+  97 000E  682C  AND R0, R1, R3          R0=0001
+  98 0010  7A40  XOR R2, R2, R0          R2=0000
+  99 0012  9101  SHR R1, 1               R1=0000
+ 100 0014  5CFF  ADDI R4, -1             R4=0000
+ 101 0016  B7FA  JMP -6                  
+ 102 000C  A405  BZ R4, +5               
+ 103 0018  0800  HLT                     
+final: R0=0001 R1=0000 R2=0000 R3=0001 R4=0000 R5=B6D5 R6=0000 R7=0000  PC=001A

@@ -1,0 +1,22 @@
+Trace of p2_memory_subtraction.tara on OUR circuit (G38_th6_tara.circ, Logisim-Evolution 4.1.0), one line per instruction.
+Each line is sampled at T0: IR = instruction just completed, PC = address of the next fetch,
+R0-R7 = register file after that instruction.
+
+  #   PC    IR    instruction               R0   R1   R2   R3   R4   R5   R6   R7
+   0  0002  1800  LIL R0, 0x0               0000 0000 0000 0000 0000 0000 0000 0000
+   1  0004  2004  LIH R0, 0x4               0400 0000 0000 0000 0000 0000 0000 0000
+   2  0006  19D0  LIL R1, 0xd0              0400 00D0 0000 0000 0000 0000 0000 0000
+   3  0008  2107  LIH R1, 0x7               0400 07D0 0000 0000 0000 0000 0000 0000
+   4  000A  3100  STW R1, 0(R0)             0400 07D0 0000 0000 0000 0000 0000 0000
+   5  000C  192C  LIL R1, 0x2c              0400 002C 0000 0000 0000 0000 0000 0000
+   6  000E  2101  LIH R1, 0x1               0400 012C 0000 0000 0000 0000 0000 0000
+   7  0010  3102  STW R1, 2(R0)             0400 012C 0000 0000 0000 0000 0000 0000
+   8  0012  2A00  LDW R2, 0(R0)             0400 012C 07D0 0000 0000 0000 0000 0000
+   9  0014  2B02  LDW R3, 2(R0)             0400 012C 07D0 012C 0000 0000 0000 0000
+  10  0016  544C  SUB R4, R2, R3            0400 012C 07D0 012C 06A4 0000 0000 0000
+  11  0018  3404  STW R4, 4(R0)             0400 012C 07D0 012C 06A4 0000 0000 0000
+      001A  0800  HLT                       (final, HALTED=1)
+
+Final registers: 0400 012C 07D0 012C 06A4 0000 0000 0000
+Data memory (addr:word, non-zero, >= 0x400): 400:07D0 402:012C 404:06A4
+TARA Studio final:  0400 012C 07D0 012C 06A4 0000 0000 0000  PC=001A   -> IDENTICAL

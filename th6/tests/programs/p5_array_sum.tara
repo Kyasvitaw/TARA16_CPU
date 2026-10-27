@@ -1,0 +1,26 @@
+; Integration program 5: sum of a 16-bit array
+; builds an 8-word array at 0x0400, sums it into R3, and stores the sum at 0x0410 and 0x041E
+        LIL  R0, 0x00
+        LIH  R0, 0x04        ; R0 = array base 0x0400
+        MOV  R1, R0          ; write pointer
+        LIL  R2, 8           ; count
+        LIL  R4, 0xE8
+        LIH  R4, 0x03        ; first element 1000
+init:   BZ   R2, sum
+        STW  R4, 0(R1)
+        ADDI R4, -125        ; elements 1000, 875, ... , 125
+        ADDI R1, 2
+        ADDI R2, -1
+        JMP  init
+sum:    LIL  R2, 8
+        LIL  R3, 0
+        MOV  R1, R0
+loop:   BZ   R2, done
+        LDW  R5, 0(R1)
+        ADD  R3, R3, R5
+        ADDI R1, 2
+        ADDI R2, -1
+        JMP  loop
+done:   STW  R3, 0(R1)       ; R1 = 0x0410 now
+        STW  R3, 14(R1)      ; also at 0x041E
+        HLT

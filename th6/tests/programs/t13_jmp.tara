@@ -1,0 +1,9 @@
+LIL R1, 1
+JMP fwd
+LIL R1, 0x55        ; skipped
+back: LIL R3, 3
+JMP done
+fwd: LIL R2, 2
+JMP back
+LIL R4, 0x66        ; skipped
+done: HLT

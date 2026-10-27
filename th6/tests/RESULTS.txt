@@ -1,0 +1,41 @@
+TH6 test results - Group 38, CS25B035 - G38_th6_tara.circ (Logisim-Evolution 4.1.0)
+
+Each program was assembled by the TARA Studio assembler, loaded into ram_word (top RAM = low byte,
+bottom RAM = high byte) and run on our circuit until HALTED = 1, using Logisim's own simulator.
+The same program was run on TARA Studio's CPU model. PASS = R0-R7, PC and all 2048 bytes of
+memory identical (t21: checked against our documented MUL-halts policy).
+
+PASS t01_fetch_nop_hlt              R0-R7 0000 0000 0000 0000 0000 0000 0000 0000  PC=000A
+PASS t02_lil                        R0-R7 00FF 0080 0000 0000 0000 0000 0000 002A  PC=000A
+PASS t03_lih                        R0-R7 ABCD FF34 0500 00FF 0000 0000 0000 0000  PC=0012
+PASS t04_mov                        R0-R7 0000 1234 1234 0000 0000 0000 0000 1234  PC=000E
+PASS t05_add                        R0-R7 0000 7FFF 0002 8000 FFFF 0000 0002 0000  PC=0014
+PASS t06_sub                        R0-R7 0000 0003 0005 FFFE 0002 8000 0001 7FFF  PC=0014
+PASS t07_addi                       R0-R7 0000 0008 FFFF 8000 007F 0000 0000 0000  PC=0016
+PASS t08_logic                      R0-R7 FFFF 0FF0 A53C 0530 AFFC AACC 0000 F00F  PC=0016
+PASS t09_shift                      R0-R7 0000 0028 8000 0000 4000 0001 00FF 7FFF  PC=0024
+PASS t10_slt                        R0-R7 0001 FFFF 0001 0001 0000 0000 0000 7FFF  PC=001A
+PASS t11_ldw_stw                    R0-R7 0000 0410 1234 1234 0410 1234 0000 0410  PC=001C
+PASS t12_ldb_stb                    R0-R7 00AB 0400 1234 0012 0034 99EE 12EE EE00  PC=0022
+PASS t13_jmp                        R0-R7 0000 0001 0002 0003 0000 0000 0000 0000  PC=0012
+PASS t14_bz                         R0-R7 0000 0000 FFFF 0000 0000 0004 0000 0000  PC=0024
+PASS t15_bn                         R0-R7 FFFF 0005 8000 0000 0003 0000 0000 0000  PC=001E
+PASS t16_call_ret                   R0-R7 0000 0052 0000 0000 0000 0014 000C 05F0  PC=000E
+PASS t17_push_pop                   R0-R7 05F0 0011 AA22 AA22 0011 05EE 05EE 0013  PC=0020
+PASS t18_pop_underflow              R0-R7 0000 0077 0077 0800 0000 0000 0000 0800  PC=0012
+PASS t19_regression_mix             R0-R7 0406 0000 0015 002A 002A FFC0 002A 05E6  PC=002C
+PASS t20_regfile_ports              R0-R7 FEE1 FFEF FFEF FFEF FFEF FFEF FFEF 010E  PC=0026
+PASS t21_unimplemented_mul          R0-R7 0000 0003 0000 0000 0000 0000 0000 0000  PC=0004
+PASS p1_register_addition           R0-R7 0000 1234 0FED 2221 0000 0000 0000 0000  PC=000C
+PASS p2_memory_subtraction          R0-R7 0400 012C 07D0 012C 06A4 0000 0000 0000  PC=001A
+PASS p3_parity                      R0-R7 0001 0000 0000 0001 0000 B6D5 0000 0000  PC=001A
+PASS p4_multiply_repeated_addition  R0-R7 0000 007B 0000 159F 0000 0000 0000 0000  PC=0010
+PASS p5_array_sum                   R0-R7 0400 0410 0000 1194 0000 007D 0000 0000  PC=0030
+PASS p6_array_max                   R0-R7 0400 040E 0000 05DC 0384 0000 0410 05F0  PC=004C
+
+27/27 PASS
+
+Folders: programs/ (source), memory_images/ (<name>_LOW.hex -> top RAM, <name>_HIGH.hex -> bottom RAM),
+traces/ (the six integration programs traced on OUR circuit, one line per instruction),
+reference_logs/ (TARA Studio execution log of every program),
+screenshots/ (per program: our circuit's register file and datapath after HLT, and TARA Studio after HLT).

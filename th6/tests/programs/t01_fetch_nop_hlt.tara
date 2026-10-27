@@ -1,0 +1,6 @@
+; Condition A: four consecutive fetches under ROM control, then HLT
+NOP
+NOP
+NOP
+NOP
+HLT

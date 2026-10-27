@@ -1,0 +1,8 @@
+TARA Studio reference execution log: t01_fetch_nop_hlt.tara
+step PC    word  instruction             changes
+   0 0000  0000  NOP                     
+   1 0002  0000  NOP                     
+   2 0004  0000  NOP                     
+   3 0006  0000  NOP                     
+   4 0008  0800  HLT                     
+final: R0=0000 R1=0000 R2=0000 R3=0000 R4=0000 R5=0000 R6=0000 R7=0000  PC=000A

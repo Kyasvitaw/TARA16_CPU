@@ -1,0 +1,114 @@
+TARA Studio reference execution log: p6_array_max.tara
+step PC    word  instruction             changes
+   0 0000  1FF0  LIL R7, 0xf0            R7=00F0
+   1 0002  2705  LIH R7, 0x5             R7=05F0
+   2 0004  1800  LIL R0, 0x0             
+   3 0006  2004  LIH R0, 0x4             R0=0400
+   4 0008  1907  LIL R1, 0x7             R1=0007
+   5 000A  3100  STW R1, 0(R0)           
+   6 000C  19D4  LIL R1, 0xd4            R1=00D4
+   7 000E  21FE  LIH R1, 0xfe            R1=FED4
+   8 0010  3102  STW R1, 2(R0)           
+   9 0012  19DC  LIL R1, 0xdc            R1=00DC
+  10 0014  2105  LIH R1, 0x5             R1=05DC
+  11 0016  3104  STW R1, 4(R0)           
+  12 0018  192A  LIL R1, 0x2a            R1=002A
+  13 001A  3106  STW R1, 6(R0)           
+  14 001C  19FF  LIL R1, 0xff            R1=00FF
+  15 001E  21FF  LIH R1, 0xff            R1=FFFF
+  16 0020  3108  STW R1, 8(R0)           
+  17 0022  19DB  LIL R1, 0xdb            R1=00DB
+  18 0024  2105  LIH R1, 0x5             R1=05DB
+  19 0026  310A  STW R1, 10(R0)          
+  20 0028  1900  LIL R1, 0x0             R1=0000
+  21 002A  310C  STW R1, 12(R0)          
+  22 002C  1984  LIL R1, 0x84            R1=0084
+  23 002E  2103  LIH R1, 0x3             R1=0384
+  24 0030  310E  STW R1, 14(R0)          
+  25 0032  2B00  LDW R3, 0(R0)           R3=0007
+  26 0034  1A07  LIL R2, 0x7             R2=0007
+  27 0036  1100  MOV R1, R0              R1=0400
+  28 0038  A205  BZ R2, +5               
+  29 003A  5902  ADDI R1, 2              R1=0402
+  30 003C  2C20  LDW R4, 0(R1)           R4=FED4
+  31 003E  B806  CALL +6                 R6=0040
+  32 004C  CD00  PUSH R5                 R7=05EE
+  33 004E  9D70  SLT R5, R3, R4          
+  34 0050  A501  BZ R5, +1               
+  35 0054  D500  POP R5                  R7=05F0
+  36 0056  C000  RET                     
+  37 0040  5AFF  ADDI R2, -1             R2=0006
+  38 0042  B7FA  JMP -6                  
+  39 0038  A205  BZ R2, +5               
+  40 003A  5902  ADDI R1, 2              R1=0404
+  41 003C  2C20  LDW R4, 0(R1)           R4=05DC
+  42 003E  B806  CALL +6                 
+  43 004C  CD00  PUSH R5                 R7=05EE
+  44 004E  9D70  SLT R5, R3, R4          R5=0001
+  45 0050  A501  BZ R5, +1               
+  46 0052  1380  MOV R3, R4              R3=05DC
+  47 0054  D500  POP R5                  R5=0000 R7=05F0
+  48 0056  C000  RET                     
+  49 0040  5AFF  ADDI R2, -1             R2=0005
+  50 0042  B7FA  JMP -6                  
+  51 0038  A205  BZ R2, +5               
+  52 003A  5902  ADDI R1, 2              R1=0406
+  53 003C  2C20  LDW R4, 0(R1)           R4=002A
+  54 003E  B806  CALL +6                 
+  55 004C  CD00  PUSH R5                 R7=05EE
+  56 004E  9D70  SLT R5, R3, R4          
+  57 0050  A501  BZ R5, +1               
+  58 0054  D500  POP R5                  R7=05F0
+  59 0056  C000  RET                     
+  60 0040  5AFF  ADDI R2, -1             R2=0004
+  61 0042  B7FA  JMP -6                  
+  62 0038  A205  BZ R2, +5               
+  63 003A  5902  ADDI R1, 2              R1=0408
+  64 003C  2C20  LDW R4, 0(R1)           R4=FFFF
+  65 003E  B806  CALL +6                 
+  66 004C  CD00  PUSH R5                 R7=05EE
+  67 004E  9D70  SLT R5, R3, R4          
+  68 0050  A501  BZ R5, +1               
+  69 0054  D500  POP R5                  R7=05F0
+  70 0056  C000  RET                     
+  71 0040  5AFF  ADDI R2, -1             R2=0003
+  72 0042  B7FA  JMP -6                  
+  73 0038  A205  BZ R2, +5               
+  74 003A  5902  ADDI R1, 2              R1=040A
+  75 003C  2C20  LDW R4, 0(R1)           R4=05DB
+  76 003E  B806  CALL +6                 
+  77 004C  CD00  PUSH R5                 R7=05EE
+  78 004E  9D70  SLT R5, R3, R4          
+  79 0050  A501  BZ R5, +1               
+  80 0054  D500  POP R5                  R7=05F0
+  81 0056  C000  RET                     
+  82 0040  5AFF  ADDI R2, -1             R2=0002
+  83 0042  B7FA  JMP -6                  
+  84 0038  A205  BZ R2, +5               
+  85 003A  5902  ADDI R1, 2              R1=040C
+  86 003C  2C20  LDW R4, 0(R1)           R4=0000
+  87 003E  B806  CALL +6                 
+  88 004C  CD00  PUSH R5                 R7=05EE
+  89 004E  9D70  SLT R5, R3, R4          
+  90 0050  A501  BZ R5, +1               
+  91 0054  D500  POP R5                  R7=05F0
+  92 0056  C000  RET                     
+  93 0040  5AFF  ADDI R2, -1             R2=0001
+  94 0042  B7FA  JMP -6                  
+  95 0038  A205  BZ R2, +5               
+  96 003A  5902  ADDI R1, 2              R1=040E
+  97 003C  2C20  LDW R4, 0(R1)           R4=0384
+  98 003E  B806  CALL +6                 
+  99 004C  CD00  PUSH R5                 R7=05EE
+ 100 004E  9D70  SLT R5, R3, R4          
+ 101 0050  A501  BZ R5, +1               
+ 102 0054  D500  POP R5                  R7=05F0
+ 103 0056  C000  RET                     
+ 104 0040  5AFF  ADDI R2, -1             R2=0000
+ 105 0042  B7FA  JMP -6                  
+ 106 0038  A205  BZ R2, +5               
+ 107 0044  1600  MOV R6, R0              R6=0400
+ 108 0046  5E10  ADDI R6, 16             R6=0410
+ 109 0048  33C0  STW R3, 0(R6)           
+ 110 004A  0800  HLT                     
+final: R0=0400 R1=040E R2=0000 R3=05DC R4=0384 R5=0000 R6=0410 R7=05F0  PC=004C

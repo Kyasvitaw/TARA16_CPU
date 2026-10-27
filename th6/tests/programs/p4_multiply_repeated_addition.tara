@@ -1,0 +1,10 @@
+; Integration program 4: multiplication by repeated addition (no MUL)
+; R3 = R1 * R2 = 123 * 45 = 5535 = 0x159F
+        LIL  R1, 123         ; multiplicand
+        LIL  R2, 45          ; multiplier (loop counter)
+        LIL  R3, 0           ; product
+loop:   BZ   R2, done
+        ADD  R3, R3, R1
+        ADDI R2, -1
+        JMP  loop
+done:   HLT

@@ -1,0 +1,12 @@
+TARA microcode generator, TH5 — 15 instructions: NOP HLT MOV LIL LIH ADD SUB ADDI AND OR XOR NOT SHL SHR SLT
+ROM 2048 x 32 bits
+
+[PASS] 1. no control word selects more than one bus source
+[PASS] 2. every instruction eventually asserts STEP_RESET or HALT
+[PASS] 3. mem_read and mem_write are never asserted together
+[PASS] 4. write enables are never asserted without valid source data
+[PASS] 5. conditional-branch words differ only in the relevant condition signal
+[PASS] 6. no undefined opcode can modify architectural state (they HALT)
+[PASS] 7. T0-T2 hold the common fetch sequence for every opcode
+
+7/7 checks passed

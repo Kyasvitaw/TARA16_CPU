@@ -1,0 +1,16 @@
+TARA Studio reference execution log: t10_slt.tara
+step PC    word  instruction             changes
+   0 0000  19FF  LIL R1, 0xff            R1=00FF
+   1 0002  21FF  LIH R1, 0xff            R1=FFFF
+   2 0004  1A01  LIL R2, 0x1             R2=0001
+   3 0006  9B28  SLT R3, R1, R2          R3=0001
+   4 0008  9C44  SLT R4, R2, R1          
+   5 000A  9D48  SLT R5, R2, R2          
+   6 000C  1E00  LIL R6, 0x0             
+   7 000E  2680  LIH R6, 0x80            R6=8000
+   8 0010  1FFF  LIL R7, 0xff            R7=00FF
+   9 0012  277F  LIH R7, 0x7f            R7=7FFF
+  10 0014  98DC  SLT R0, R6, R7          R0=0001
+  11 0016  9EF8  SLT R6, R7, R6          R6=0000
+  12 0018  0800  HLT                     
+final: R0=0001 R1=FFFF R2=0001 R3=0001 R4=0000 R5=0000 R6=0000 R7=7FFF  PC=001A

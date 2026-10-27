@@ -1,0 +1,7 @@
+LIL R1, 0x34
+LIH R1, 0x12
+MOV R2, R1
+MOV R7, R2
+MOV R0, R0
+MOV R3, R5          ; copy of zero
+HLT

@@ -1,0 +1,129 @@
+TARA control ROM (TH5).  address = {Z, N, OPCODE[4:0], TSTATE[3:0]}
+
+Control word layout:
+  bit  0     PC_OUT
+  bit  1     IR_OUT
+  bit  2     MDR_OUT
+  bit  3     IMM_OUT
+  bit  4     RF_OUT
+  bit  5     ALU_OUT
+  bit  6     RAM_OUT_LD
+  bit  7     MAR_LOAD
+  bit  8     MDR_LOAD
+  bit  9     IR_LOAD
+  bit 10     ACC_load
+  bit 11     RF_WRITE
+  bit 12     PC_EN
+  bit 13     PC_LOAD
+  bit 14     mem_read
+  bit 15     mem_write
+  bit 16-20  ALU_select
+  bit 21     ALU_A_SEL
+  bit 22     ALU_B_SEL
+  bit 23     status_we
+  bit 24-26  IMM_SEL
+  bit 27-28  RA_SEL
+  bit 29     STEP_RESET
+  bit 30     HALT
+
+filler word 0x20000000 (STEP_RESET); unimplemented opcode 0x60000000 (HALT)
+
+FETCH T0  0x00000081  PC_OUT MAR_LOAD
+FETCH T1  0x00005140  RAM_OUT_LD MDR_LOAD PC_EN mem_read
+FETCH T2  0x00000204  MDR_OUT IR_LOAD
+
+NOP  (opcode 0, 00000)  implemented
+  T3  addr 0x003  0x20000000  STEP_RESET
+
+HLT  (opcode 1, 00001)  implemented
+  T3  addr 0x013  0x60000000  STEP_RESET HALT
+
+MOV  (opcode 2, 00010)  implemented
+  T3  addr 0x023  0x20000810  RF_OUT RF_WRITE STEP_RESET
+
+LIL  (opcode 3, 00011)  implemented
+  T3  addr 0x033  0x20000808  IMM_OUT RF_WRITE STEP_RESET
+
+LIH  (opcode 4, 00100)  implemented
+  T3  addr 0x043  0x2E000808  IMM_OUT RF_WRITE IMM_SEL=6 RA_SEL=1 STEP_RESET
+
+LDW  (opcode 5, 00101)  HALTs
+  T3  addr 0x053  0x60000000  STEP_RESET HALT
+
+STW  (opcode 6, 00110)  HALTs
+  T3  addr 0x063  0x60000000  STEP_RESET HALT
+
+LDB  (opcode 7, 00111)  HALTs
+  T3  addr 0x073  0x60000000  STEP_RESET HALT
+
+STB  (opcode 8, 01000)  HALTs
+  T3  addr 0x083  0x60000000  STEP_RESET HALT
+
+ADD  (opcode 9, 01001)  implemented
+  T3  addr 0x093  0x20890C20  ALU_OUT ACC_load RF_WRITE ALU_select=9 status_we STEP_RESET
+
+SUB  (opcode 10, 01010)  implemented
+  T3  addr 0x0A3  0x208A0C20  ALU_OUT ACC_load RF_WRITE ALU_select=10 status_we STEP_RESET
+
+ADDI  (opcode 11, 01011)  implemented
+  T3  addr 0x0B3  0x29C90C20  ALU_OUT ACC_load RF_WRITE ALU_select=9 ALU_B_SEL status_we IMM_SEL=1 RA_SEL=1 STEP_RESET
+
+MUL  (opcode 12, 01100)  HALTs
+  T3  addr 0x0C3  0x60000000  STEP_RESET HALT
+
+AND  (opcode 13, 01101)  implemented
+  T3  addr 0x0D3  0x208D0C20  ALU_OUT ACC_load RF_WRITE ALU_select=13 status_we STEP_RESET
+
+OR  (opcode 14, 01110)  implemented
+  T3  addr 0x0E3  0x208E0C20  ALU_OUT ACC_load RF_WRITE ALU_select=14 status_we STEP_RESET
+
+XOR  (opcode 15, 01111)  implemented
+  T3  addr 0x0F3  0x208F0C20  ALU_OUT ACC_load RF_WRITE ALU_select=15 status_we STEP_RESET
+
+NOT  (opcode 16, 10000)  implemented
+  T3  addr 0x103  0x20900C20  ALU_OUT ACC_load RF_WRITE ALU_select=16 status_we STEP_RESET
+
+SHL  (opcode 17, 10001)  implemented
+  T3  addr 0x113  0x28D10C20  ALU_OUT ACC_load RF_WRITE ALU_select=17 ALU_B_SEL status_we RA_SEL=1 STEP_RESET
+
+SHR  (opcode 18, 10010)  implemented
+  T3  addr 0x123  0x28D20C20  ALU_OUT ACC_load RF_WRITE ALU_select=18 ALU_B_SEL status_we RA_SEL=1 STEP_RESET
+
+SLT  (opcode 19, 10011)  implemented
+  T3  addr 0x133  0x20930C20  ALU_OUT ACC_load RF_WRITE ALU_select=19 status_we STEP_RESET
+
+BZ  (opcode 20, 10100)  HALTs
+  T3  addr 0x143  0x60000000  STEP_RESET HALT
+
+BN  (opcode 21, 10101)  HALTs
+  T3  addr 0x153  0x60000000  STEP_RESET HALT
+
+JMP  (opcode 22, 10110)  HALTs
+  T3  addr 0x163  0x60000000  STEP_RESET HALT
+
+CALL  (opcode 23, 10111)  HALTs
+  T3  addr 0x173  0x60000000  STEP_RESET HALT
+
+RET  (opcode 24, 11000)  HALTs
+  T3  addr 0x183  0x60000000  STEP_RESET HALT
+
+PUSH  (opcode 25, 11001)  HALTs
+  T3  addr 0x193  0x60000000  STEP_RESET HALT
+
+POP  (opcode 26, 11010)  HALTs
+  T3  addr 0x1A3  0x60000000  STEP_RESET HALT
+
+undefined 27  (opcode 27, 11011)  HALTs
+  T3  addr 0x1B3  0x60000000  STEP_RESET HALT
+
+undefined 28  (opcode 28, 11100)  HALTs
+  T3  addr 0x1C3  0x60000000  STEP_RESET HALT
+
+undefined 29  (opcode 29, 11101)  HALTs
+  T3  addr 0x1D3  0x60000000  STEP_RESET HALT
+
+undefined 30  (opcode 30, 11110)  HALTs
+  T3  addr 0x1E3  0x60000000  STEP_RESET HALT
+
+undefined 31  (opcode 31, 11111)  HALTs
+  T3  addr 0x1F3  0x60000000  STEP_RESET HALT
