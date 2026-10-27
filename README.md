@@ -6,7 +6,6 @@ The CPU has a bus-based datapath, an 8×16 register file, an ALU with status fla
 
 | | |
 |---|---|
-| **Author** | CS25B035 (Group 38, individual) |
 | **Tool** | Logisim-Evolution 4.1.0 |
 | **Instructions implemented** | 26 / 26 graded (MUL intentionally halts) |
 | **Verification** | 27 / 27 programs identical to the reference simulator (TARA Studio): registers, PC and all 2048 bytes of memory |
@@ -227,4 +226,4 @@ A program passes only if **R0–R7, the PC and all 2048 bytes of memory** match.
 - [`th6/G38_th6_report.pdf`](th6/G38_th6_report.pdf): memory, branches, CALL/RET, PUSH/POP and integration
 
 ## Acknowledgements
-The TARA ISA, the lab specification and the TARA Studio reference simulator (`taracpu`) are from the CS2310 course at IIT Madras. The Python scripts in this repository were written with AI assistance, as permitted by the course instructor. The circuit was designed and built by the author.
+The TARA ISA, the lab specification and the TARA Studio reference simulator (`taracpu`) are from the CS2310 course at IIT Madras. 
